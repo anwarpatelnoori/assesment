@@ -35,7 +35,8 @@ def get_columns() -> list[dict]:
 		{
 			"label": _("Agency Name"),
 			"fieldname": "agency_name",
-			"fieldtype": "Data",
+			"fieldtype": "Link",
+			"options": "Supplier",
 			"width": 120,
 		},
 		{
@@ -94,7 +95,6 @@ def get_data(filters) -> list[list]:
 	return agency_data
 
 def format_data(agency_data):
-	print(f'\n\n\n\n\n\n{agency_data}\n\n\n\n\n\n\n')
 	grouped_data = []
 	last_parent = None
 	for data in agency_data:
@@ -103,5 +103,6 @@ def format_data(agency_data):
 			last_parent = data["parent"]
 		else:
 			row["name"] = ""
+			row["agency_name"] = ""
 		grouped_data.append(row)
 	return grouped_data

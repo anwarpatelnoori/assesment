@@ -67,6 +67,30 @@ class Agency(Document):
 						msg=f'Supplier {agency_name} already exists'
 					)
 
+import frappe
+
+@frappe.whitelist()
+@frappe.validate_and_sanitize_search_inputs
+def get_items_from_agency(doctype, txt, searchfield, start, page_len, filters):
+	filters = frappe.parse_json(filters)
+	agency_name = filters.get("agency_name") 
+	# filter only agency items
+	return frappe.db.sql("""
+		SELECT 
+			agency_item.item as item_code
+		FROM `tabAgency` agency
+		JOIN `tabAgency Item` agency_item ON agency_item.parent = agency.name
+		WHERE
+			agency.agency_name = %(agency_name)s
+			AND (agency_item.item LIKE %(txt)s)
+		LIMIT %(page_len)s OFFSET %(start)s
+	""", {
+		"agency_name": agency_name,  
+		"txt": f"%{txt}%",
+		"page_len": page_len,
+		"start": start
+	})
+
 
 
 
