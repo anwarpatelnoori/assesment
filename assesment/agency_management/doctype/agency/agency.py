@@ -24,10 +24,17 @@ class Agency(Document):
 	# end: auto-generated types
 
 	def validate(self):
-		purchase_invoice_exists = frappe.db.exists("Purchase Invoice", {"supplier": self.agency_name, "docstatus": 0})
-		purchase_receipt_exists = frappe.db.exists("Purchase Receipt", {"supplier": self.agency_name, "docstatus": 0})
+		purchase_invoice_exists = frappe.db.exists("Purchase Invoice", {"supplier": self.agency_name, "docstatus": 1})
+		purchase_receipt_exists = frappe.db.exists("Purchase Receipt", {"supplier": self.agency_name, "docstatus": 1})
 		if self.is_active == 0 and (purchase_invoice_exists or purchase_receipt_exists):
 			frappe.throw(f"You Can't disable the {self.agency_name} as Purchase has beend done with the supplier")
+		item_codes = []
+		for idx, item in enumerate(self.agency_item):
+			if item.item in item_codes:
+				frappe.throw(f"Duplicate Item Code Found: {item.item} at row {idx + 1}")
+				break
+			item_codes.append(item.item)
+
 
 
 	@frappe.whitelist()
@@ -66,8 +73,6 @@ class Agency(Document):
 						title='Dupplicate Entry',
 						msg=f'Supplier {agency_name} already exists'
 					)
-
-import frappe
 
 @frappe.whitelist()
 @frappe.validate_and_sanitize_search_inputs
