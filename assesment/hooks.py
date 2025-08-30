@@ -42,6 +42,16 @@ app_license = "mit"
 # include js in page
 # page_js = {"page" : "public/js/file.js"}
 
+fixtures = [
+    {"dt": "Workspace", "filters" :[
+        [
+            "name","in",[
+                "Agency Management"
+            ]
+        ]
+    ]}
+]
+
 # include js in doctype views
 doctype_js = {
     "Purchase Invoice" : "overrides/purchase_invoice/custom_purchase_invoice.js",

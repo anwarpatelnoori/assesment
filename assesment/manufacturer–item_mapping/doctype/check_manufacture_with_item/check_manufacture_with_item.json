@@ -1,0 +1,55 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-08-30 20:36:00.720542",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "item",
+  "get_manufacture",
+  "all_manufactures"
+ ],
+ "fields": [
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "label": "Item",
+   "options": "Item"
+  },
+  {
+   "fieldname": "get_manufacture",
+   "fieldtype": "Button",
+   "label": "Get Manufacture"
+  },
+  {
+   "fieldname": "all_manufactures",
+   "fieldtype": "HTML",
+   "label": "All Manufactures"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2025-08-30 20:41:17.735103",
+ "modified_by": "Administrator",
+ "module": "Manufacturer\u2013Item Mapping",
+ "name": "Check Manufacture with Item",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
