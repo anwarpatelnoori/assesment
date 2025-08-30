@@ -7,7 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "agency_name",
-  "territory",
+  "country",
   "is_active",
   "column_break_hujh",
   "email_id",
@@ -22,12 +22,6 @@
    "in_list_view": 1,
    "label": "Agency Name",
    "reqd": 1
-  },
-  {
-   "fieldname": "territory",
-   "fieldtype": "Link",
-   "label": "Territory",
-   "options": "Territory"
   },
   {
    "default": "1",
@@ -67,12 +61,18 @@
    "fieldtype": "Table",
    "label": "Agency Item",
    "options": "Agency Item"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "label": "Country",
+   "options": "Country"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-08-30 04:19:06.837993",
+ "modified": "2025-08-30 14:01:27.189703",
  "modified_by": "Administrator",
  "module": "Agency Management",
  "name": "Agency",

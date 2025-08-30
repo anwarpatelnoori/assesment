@@ -17,35 +17,44 @@ class Agency(Document):
 
 		agency_item: DF.Table[AgencyItem]
 		agency_name: DF.Data
+		country: DF.Link | None
 		email_id: DF.Data | None
 		is_active: DF.Check
 		phone_number: DF.Phone | None
-		territory: DF.Link | None
 	# end: auto-generated types
 
 	def validate(self):
-		if self.is_active == 0 and len(self.agency_item)>0:
-			frappe.throw(f"You Can't disable the {self.agency_name} as it items are linked to it")
+		purchase_invoice_exists = frappe.db.exists("Purchase Invoice", {"supplier": self.agency_name, "docstatus": 0})
+		purchase_receipt_exists = frappe.db.exists("Purchase Receipt", {"supplier": self.agency_name, "docstatus": 0})
+		if self.is_active == 0 and (purchase_invoice_exists or purchase_receipt_exists):
+			frappe.throw(f"You Can't disable the {self.agency_name} as Purchase has beend done with the supplier")
 
 
 	@frappe.whitelist()
-	def create_supplier(self, agency_name, email_id= None, territory= None, phone_number= None):
+	def create_supplier(self, agency_name, email_id= None, country= None, phone_number= None):
 		#create supplier only if not exists
 		supplier_exists = frappe.db.exists("Supplier",{"supplier_name":agency_name})
 		if not supplier_exists:
 			supplier = frappe.new_doc("Supplier")
 			supplier.supplier_name = agency_name
+			supplier.custom_agency = self.name
+			if country:
+				supplier.country = self.country
 			supplier.insert()
+			
+			# create contact and link with supplier
 			contact = frappe.new_doc("Contact")
 			contact.first_name = agency_name
-			contact.append("email_ids",{
-				"email_id" : email_id,
-				"is_primary" : 1
-			})
-			contact.append("phone_nos",{
-				"phone": phone_number,
-				"is_primary_mobile_no":1
-			})
+			if email_id:
+				contact.append("email_ids",{
+					"email_id" : email_id,
+					"is_primary" : 1
+				})
+			if phone_number:	
+				contact.append("phone_nos",{
+					"phone": phone_number,
+					"is_primary_mobile_no":1
+				})
 			contact.append("links",{
 				"link_doctype": "Supplier",
 				"link_name": supplier.name
