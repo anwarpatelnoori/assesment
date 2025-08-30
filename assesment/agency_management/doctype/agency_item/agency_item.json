@@ -1,0 +1,67 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-08-29 21:46:18.901513",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item",
+  "uom",
+  "rate",
+  "qty",
+  "lead_time"
+ ],
+ "fields": [
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Min Order Qty"
+  },
+  {
+   "default": "0",
+   "description": "In Days",
+   "fieldname": "lead_time",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Lead Time"
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "UOM",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "rate",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Rate"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-29 21:54:55.899666",
+ "modified_by": "Administrator",
+ "module": "Agency Management",
+ "name": "Agency Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
