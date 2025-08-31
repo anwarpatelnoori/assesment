@@ -47,6 +47,9 @@ bench install-app assesment
 - Agency name & Id will not repat if it has more than one item    
 <img width="1035" height="460" alt="image" src="https://github.com/user-attachments/assets/a14e66aa-44c7-4953-b6ed-abf74957a75f" />
 
+### Agency Item filterd in Purchase Invoice and Receipt
+<img width="1869" height="812" alt="image" src="https://github.com/user-attachments/assets/a3191b88-4c96-45ad-bdf2-5a3a1333f494" />
+
 
 ## Testing Instruction: Module 2: Manufacturer–Item Mapping
 ### Manufacturer DocType Functionalites :
