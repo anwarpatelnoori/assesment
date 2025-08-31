@@ -26,8 +26,26 @@ class Agency(Document):
 	def validate(self):
 		purchase_invoice_exists = frappe.db.exists("Purchase Invoice", {"supplier": self.agency_name, "docstatus": 1})
 		purchase_receipt_exists = frappe.db.exists("Purchase Receipt", {"supplier": self.agency_name, "docstatus": 1})
-		if self.is_active == 0 and (purchase_invoice_exists or purchase_receipt_exists):
-			frappe.throw(f"You Can't disable the {self.agency_name} as Purchase has beend done with the supplier")
+		if self.is_active == 0: 
+			if purchase_invoice_exists:
+				frappe.throw(
+					msg = ("Purchase Invoice already exists: <a href='{0}' target='_blank'>{1}</a>").format(
+								frappe.utils.get_url_to_form("Purchase Invoice", purchase_invoice_exists),
+								purchase_invoice_exists
+							),
+					title = ("Can't Block Agent, as Purchase is already done")
+				)
+
+			if purchase_receipt_exists:
+				frappe.throw(
+					msg = ("Purchase Receipt already exists: <a href='{0}' target='_blank'>{1}</a>").format(
+								frappe.utils.get_url_to_form("Purchase Receipt", purchase_receipt_exists),
+								purchase_receipt_exists
+							),
+					title = ("Can't Block Agent, as Purchase is already done")
+				)
+			if len (self.agency_item)>0:
+				frappe.throw("Can't Blaock, as Items are linked with Supplier")
 		item_codes = []
 		for idx, item in enumerate(self.agency_item):
 			if item.item in item_codes:
@@ -76,6 +94,7 @@ class Agency(Document):
 
 	@frappe.whitelist()
 	def check_supplier(self):
+		supplier_exists = frappe.db.exists("Supplier", { "supplier_name": self.agency_name })
 		return frappe.db.exists("Supplier", { "supplier_name": self.agency_name })
 
 @frappe.whitelist()

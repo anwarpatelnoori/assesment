@@ -11,7 +11,7 @@ frappe.ui.form.on("Agency", {
                         frappe.set_route("Form", "Supplier", frm.doc.agency_name)
                     });
                 }
-                else {                    
+                else {
                     //  create supplier button if not exists
                     frm.add_custom_button('Create Supplier', () => {
                         frm.call("create_supplier", {
@@ -19,11 +19,10 @@ frappe.ui.form.on("Agency", {
                             email_id: frm.doc.email_id,
                             country: frm.doc.country,
                             phone_number: frm.doc.phone_number
-                        }).then(() => {
-                            frm.refresh();
-                        })
+                        }).then(r => {
+                            frm.reload_doc();
+                        });
                     });
-                    frm.refresh();
                 }
             })
         }
