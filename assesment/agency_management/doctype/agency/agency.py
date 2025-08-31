@@ -74,6 +74,10 @@ class Agency(Document):
 						msg=f'Supplier {agency_name} already exists'
 					)
 
+	@frappe.whitelist()
+	def check_supplier(self):
+		return frappe.db.exists("Supplier", { "supplier_name": self.agency_name })
+
 @frappe.whitelist()
 @frappe.validate_and_sanitize_search_inputs
 def get_items_from_agency(doctype, txt, searchfield, start, page_len, filters):

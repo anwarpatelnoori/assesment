@@ -46,7 +46,7 @@ fixtures = [
     {"dt": "Workspace", "filters" :[
         [
             "name","in",[
-                "Agency Management"
+                "Agency Management","Manufacturer–Item Mapping"
             ]
         ]
     ]}

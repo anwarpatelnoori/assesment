@@ -4,14 +4,14 @@
 frappe.ui.form.on("Agency", {
     refresh(frm) {
         if (!frm.is_new()) {
-            frappe.db.exists("Supplier", { "supplier_name": frm.doc.agency_name }).then(r => {
-                if (r == true) {
+            frm.call("check_supplier").then(r => {
+                if (r.message) {
                     // add go to supplier button if exists 
                     frm.add_custom_button('Go to Supplier', () => {
                         frappe.set_route("Form", "Supplier", frm.doc.agency_name)
                     });
                 }
-                else {
+                else {                    
                     //  create supplier button if not exists
                     frm.add_custom_button('Create Supplier', () => {
                         frm.call("create_supplier", {
@@ -23,6 +23,7 @@ frappe.ui.form.on("Agency", {
                             frm.refresh();
                         })
                     });
+                    frm.refresh();
                 }
             })
         }

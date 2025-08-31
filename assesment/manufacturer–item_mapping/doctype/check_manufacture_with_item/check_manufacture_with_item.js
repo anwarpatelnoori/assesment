@@ -20,7 +20,7 @@ frappe.ui.form.on("Check Manufacture with Item", {
                         table += `
                             <tr>
                                 <td class="border px-4 py-2">${item.manufacturer_name || 'N/A'}</td>
-                                <td class="border px-4 py-2">${item.gln_no || 'N/A'}</td>
+                                <td class="border px-4 py-2">${item.gln || 'N/A'}</td>
                                 <td class="border px-4 py-2">${item.country || 'N/A'}</td>
                             </tr>
                         `;
