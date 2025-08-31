@@ -63,6 +63,7 @@ def get_data(filters) -> list[list]:
 	)
 	if filters.get("manufacturer"):
 		query = query.where(mfr.manufacturer == filters.get("manufacturer"))
+	data = query.run(as_dict = True)	
 	return query.run(as_dict = True)
 
 def format_data(data):
@@ -75,4 +76,5 @@ def format_data(data):
 		else:
 			row["manufacturer"] = ""
 		grouped_data.append(row)
+	print(f'\n\n\n\n\n\n{grouped_data}\n\n\n\n\n\n\n')
 	return grouped_data

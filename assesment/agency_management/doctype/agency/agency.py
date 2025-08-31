@@ -44,8 +44,6 @@ class Agency(Document):
 							),
 					title = ("Can't Block Agent, as Purchase is already done")
 				)
-			if len (self.agency_item)>0:
-				frappe.throw("Can't Blaock, as Items are linked with Supplier")
 		item_codes = []
 		for idx, item in enumerate(self.agency_item):
 			if item.item in item_codes:

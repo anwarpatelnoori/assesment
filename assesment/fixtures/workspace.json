@@ -1,8 +1,7 @@
-
 [
  {
   "charts": [],
-  "content": "[{\"id\":\"dEiLp6eaFr\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Agency Management</span>\",\"col\":12}},{\"id\":\"IONFAMT4Ve\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Agency\",\"col\":3}},{\"id\":\"_FYa9DPUPc\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Agency Lead Times\",\"col\":3}}]",
+  "content": "[{\"id\":\"dEiLp6eaFr\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Agency Management</span>\",\"col\":12}},{\"id\":\"IONFAMT4Ve\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Agency\",\"col\":3}},{\"id\":\"a7NfekMM3C\",\"type\":\"paragraph\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Report</span>\",\"col\":12}},{\"id\":\"_FYa9DPUPc\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Agency Lead Times\",\"col\":3}}]",
   "custom_blocks": [],
   "docstatus": 0,
   "doctype": "Workspace",
@@ -13,7 +12,7 @@
   "is_hidden": 0,
   "label": "Agency Management",
   "links": [],
-  "modified": "2025-08-30 18:03:37.932708",
+  "modified": "2025-08-31 20:53:33.579077",
   "module": null,
   "name": "Agency Management",
   "number_cards": [],
@@ -22,7 +21,7 @@
   "quick_lists": [],
   "restrict_to_domain": null,
   "roles": [],
-  "sequence_id": 0,
+  "sequence_id": 0.0,
   "shortcuts": [
    {
     "color": "Grey",
@@ -63,7 +62,7 @@
  },
  {
   "charts": [],
-  "content": "[{\"id\":\"Wx_DVYAt7i\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Manufacturer–Item Mapping</span>\",\"col\":12}},{\"id\":\"p9QXGvYzVp\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Manufacturer Details\",\"col\":3}},{\"id\":\"rsP7qTkcyZ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Manufacturer Item\",\"col\":3}},{\"id\":\"SIyOsZKcM7\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Check Manufacture With Item\",\"col\":3}}]",
+  "content": "[{\"id\":\"Wx_DVYAt7i\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Manufacturer–Item Mapping</span>\",\"col\":12}},{\"id\":\"p9QXGvYzVp\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Manufacturer Details\",\"col\":3}},{\"id\":\"rsP7qTkcyZ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Manufacturer Item\",\"col\":3}},{\"id\":\"SIyOsZKcM7\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Check Manufacture With Item\",\"col\":3}},{\"id\":\"7uqefLZjb5\",\"type\":\"paragraph\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Report</span>\",\"col\":12}},{\"id\":\"8itK5sL5cS\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Items By Manufacturer\",\"col\":3}},{\"id\":\"WDq1L8T_iZ\",\"type\":\"paragraph\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Rest API:</span>&nbsp;Below API will&nbsp;return all manufacturer mappings for a given item_code\",\"col\":12}},{\"id\":\"MzkkaxtX4n\",\"type\":\"paragraph\",\"data\":{\"text\":\"<a href=\\\"http://localhost:8001/api/method/assesment.manufacturer%E2%80%93item_mapping.doctype.check_manufacture_with_item.check_manufacture_with_item.get_all_manufactures?name=100\\\" rel=\\\"nofollow\\\">http://localhost:8001/api/method/assesment.manufacturer–item_mapping.doctype.check_manufacture_with_item.check_manufacture_with_item.get_all_manufactures?name=100</a>\",\"col\":12}}]",
   "custom_blocks": [],
   "docstatus": 0,
   "doctype": "Workspace",
@@ -74,7 +73,7 @@
   "is_hidden": 0,
   "label": "Manufacturer–Item Mapping",
   "links": [],
-  "modified": "2025-08-31 10:55:23.681546",
+  "modified": "2025-08-31 20:56:45.151644",
   "module": null,
   "name": "Manufacturer–Item Mapping",
   "number_cards": [],
@@ -83,8 +82,25 @@
   "quick_lists": [],
   "restrict_to_domain": null,
   "roles": [],
-  "sequence_id": 0,
+  "sequence_id": 0.0,
   "shortcuts": [
+   {
+    "color": "Grey",
+    "doc_view": "List",
+    "format": null,
+    "icon": null,
+    "kanban_board": null,
+    "label": "Items By Manufacturer",
+    "link_to": "Items by Manufacturer",
+    "parent": "Manufacturer–Item Mapping",
+    "parentfield": "shortcuts",
+    "parenttype": "Workspace",
+    "report_ref_doctype": "Manufacturer Item",
+    "restrict_to_domain": null,
+    "stats_filter": null,
+    "type": "Report",
+    "url": null
+   },
    {
     "color": "Grey",
     "doc_view": "List",

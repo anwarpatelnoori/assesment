@@ -14,6 +14,7 @@
    "fieldname": "item",
    "fieldtype": "Link",
    "label": "Item",
+   "link_filters": "[[\"Item\",\"item_group\",\"=\",\"Medical Items\"]]",
    "options": "Item"
   },
   {
@@ -31,8 +32,8 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2025-08-30 20:41:17.735103",
- "modified_by": "Administrator",
+ "modified": "2025-08-31 18:22:20.378146",
+ "modified_by": "anwar@badeeltechnology.com",
  "module": "Manufacturer\u2013Item Mapping",
  "name": "Check Manufacture with Item",
  "owner": "Administrator",
