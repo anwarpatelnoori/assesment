@@ -18,7 +18,7 @@ bench install-app assesment
 - After Installing app these 2 workspace will come
 <img width="1787" height="411" alt="image" src="https://github.com/user-attachments/assets/df3c9cd1-6fb0-4b81-97b2-4ac19aaba0e0" />
 
-## Testing Instruction: Module 1: Agency Management
+## Testing Instruction: Module 1: Agency Management 
 ### Agency DocType Functionalites :
 - Agency name is manatory
 <img width="1134" height="544" alt="image" src="https://github.com/user-attachments/assets/66a3d9d8-6cd0-4d08-9766-2f2b2b0ee252" />
@@ -33,13 +33,52 @@ bench install-app assesment
 #### Agency DocType Validations:
 - Prevents duplicate items in agency items table.
 <img width="1370" height="702" alt="image" src="https://github.com/user-attachments/assets/a92d9676-5e38-4b62-9585-0f60de568edb" />
+
 - Prevent deactivating an Agency if it purchase has been done with this supplier or Items has been added in the child table.
-- - It will show with hyeper link of Purchase Invoice/receipt of that supplier if it founds
+- It will show with hyeper link of Purchase Invoice/receipt of that supplier if it founds
 <img width="1352" height="503" alt="image" src="https://github.com/user-attachments/assets/2bcde301-df19-43c9-8498-eed4efbe102a" />
+
 - Inactive Agencies show in red on list view.
 <img width="1420" height="488" alt="image" src="https://github.com/user-attachments/assets/aa36e3f5-5c3a-4a0d-9189-3f78d6792abf" />
+
 #### Report
 - Report: Agency Lead Times (Agency, Item, Min Order Qty, Lead Time)
-- Filters:  Agency, Item    
+- Filters:  Agency, Item
+- Agency name & Id will not repat if it has more than one item    
 <img width="1035" height="460" alt="image" src="https://github.com/user-attachments/assets/a14e66aa-44c7-4953-b6ed-abf74957a75f" />
+
+
+## Testing Instruction: Module 2: Manufacturer–Item Mapping
+### Manufacturer DocType Functionalites :
+- Manufacturer Name and Global Location Number is manatory
+<img width="1211" height="402" alt="image" src="https://github.com/user-attachments/assets/9950f870-0cf3-4f73-99ad-960dbf5c0bdf" />
+
+### Manufacturer Item DocType Functionalites :  
+- Manufacturer is manatory and it will list those are active only
+- Validation is writen to not allow blocked manfuacters 
+- Part Number will be fetched from `Item Master` even if it is left blanked it will fetch 
+<img width="1769" height="742" alt="image" src="https://github.com/user-attachments/assets/82f820a4-c92a-48fc-89ee-8e2f97fb5460" />
+
+### Manufacturer Item validations:
+- It will not allow block supplier even from data import, server script is written for that case
+- Prevents duplicate items in manufactures items table
+<img width="1263" height="442" alt="image" src="https://github.com/user-attachments/assets/f50a763d-dddb-4c64-8d49-305b8d3dc9ac" />
+
+ **Uniquess of Manufacturer and Item Code is mainted by this approach**
+-  Enabled `Unique` Property of Manufacturer
+-  Prevent  duplicate items in manufactures items table    
+
+### Check Manufacture with Item
+- It has `Item` Field
+- `Get Manufacturer` Button
+- Upon clicking this it will list all the manufacturers of that item  in html field
+<img width="1303" height="424" alt="image" src="https://github.com/user-attachments/assets/a08ca35e-9889-4449-891e-4c6b7e2abbcb" />
+<img width="873" height="458" alt="image" src="https://github.com/user-attachments/assets/a2ff5d5f-020e-4328-a9eb-72b93e814ca4" />
+
+### Report: Items by Manufacturer.
+<img width="530" height="318" alt="image" src="https://github.com/user-attachments/assets/da2ee007-3d5c-4cc7-8a2b-70c5f5c2a0ab" />
+
+
+### Rest API requiremtn: http://localhost:8001/api/method/assesment.manufacturer–item_mapping.doctype.check_manufacture_with_item.check_manufacture_with_item.get_all_manufactures?name=100
+<img width="1363" height="948" alt="image" src="https://github.com/user-attachments/assets/8c1c263a-c0ce-4431-87d0-f93a8a9597c3" />
 
