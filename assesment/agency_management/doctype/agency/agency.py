@@ -24,9 +24,18 @@ class Agency(Document):
 	# end: auto-generated types
 
 	def validate(self):
-		purchase_invoice_exists = frappe.db.exists("Purchase Invoice", {"supplier": self.agency_name, "docstatus": 1})
-		purchase_receipt_exists = frappe.db.exists("Purchase Receipt", {"supplier": self.agency_name, "docstatus": 1})
+		item_codes = []
+		for idx, item in enumerate(self.agency_item):
+			if item.item in item_codes:
+				frappe.throw(f"Duplicate Item Code Found: {item.item} at row {idx + 1}")
+				break
+			item_codes.append(item.item)
+
 		if self.is_active == 0: 
+			if len(self.agency_item)>0:
+				frappe.throw("Can't Blaock Agent, as Items are already linked")
+			purchase_invoice_exists = frappe.db.exists("Purchase Invoice", {"supplier": self.agency_name, "docstatus": 1})
+			purchase_receipt_exists = frappe.db.exists("Purchase Receipt", {"supplier": self.agency_name, "docstatus": 1})
 			if purchase_invoice_exists:
 				frappe.throw(
 					msg = ("Purchase Invoice already exists: <a href='{0}' target='_blank'>{1}</a>").format(
@@ -44,12 +53,6 @@ class Agency(Document):
 							),
 					title = ("Can't Block Agent, as Purchase is already done")
 				)
-		item_codes = []
-		for idx, item in enumerate(self.agency_item):
-			if item.item in item_codes:
-				frappe.throw(f"Duplicate Item Code Found: {item.item} at row {idx + 1}")
-				break
-			item_codes.append(item.item)
 
 
 
